@@ -3,25 +3,707 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dari ke-4 CEO di bawah ini. Siapakah CEO idola Anda?</title>
-    
-    <meta property="og:title" content="Dari ke-4 CEO di bawah ini. Siapakah CEO idola Anda?" />
-    <meta property="og:description" content="Dari ke-4 CEO di bawah ini. Siapakah CEO idola Anda?" />
-    <meta property="og:image" content="https://infoartis.github.io/wah/foto.jpg" /> 
-    <meta property="og:url" content="https://infoartis.github.io/wah/" />
-    <meta property="og:type" content="article" /> 
-    
-    <script type="text/javascript">
-        setTimeout(function () {
-            // GANTI DENGAN URL SHOPEE FINAL ANDA (Pastikan ini Link Batik, bukan Lip Cream!)
-            window.location.href = "https://shopee.co.id/product/275076304/4784930879?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVzBLS2xuUGZzMlQ5NjlFWklmRkZjUlh0RE50YkNuZUxNc3JuKyt0eHpJbkpHdXhBZnYxZEpzdXc5c1lDK1hxOTU3YkJHamJiTTh4dVo3bmUvLzRuR3RSVU15N1ZHTE9wQkQ5aTUrelJMQjFBQWlZeC9jRThsVDBTSWUxUzJJNVdTRHN5WE9rM3NGczl1WUtuSjZFcFVFPQ&uls_trackid=548co5ud006j&utm_campaign=id_7hMLu6cXH9&utm_content=----&utm_medium=affiliates&utm_source=an_11310620979&utm_term=dztn6z57b2co";
-        }, 3000); // 3000 milidetik = 3 detik
-    </script>
+    <title>Video Streaming - 50 Video dalam 1 Halaman</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        
+        .video-tabs-container {
+            background-color: #111;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+            overflow-x: auto;
+        }
+        
+        .video-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .video-tab {
+            padding: 10px 15px;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .video-tab:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .video-tab.active {
+            background: linear-gradient(to right, #ff0000, #ff6600);
+            color: white;
+            border-color: #ff0000;
+        }
+        
+        .ad-container {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .video-player-container {
+            background-color: #000;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .video-player-element {
+            width: 100%;
+            height: 450px;
+            background-color: #222;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .video-player-element video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+        }
+        
+        .ad-native-container {
+            background-color: #111;
+            padding: 25px;
+            text-align: center;
+            width: 100%;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 30px 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-container {
+            background-color: #111;
+            padding: 35px;
+            text-align: center;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin-top: 10px;
+        }
+        
+        .smartlink-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(to right, #ff0000, #ff6600);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .smartlink-btn:hover {
+            background: linear-gradient(to right, #cc0000, #cc5500);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        .video-info {
+            background-color: #111;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+        
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background-color: #222;
+            color: white;
+            border: 1px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .nav-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .current-video-indicator {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .video-player-element {
+                height: 350px;
+            }
+            
+            .smartlink-btn {
+                min-width: 100%;
+                padding: 18px 35px;
+                font-size: 1.3rem;
+            }
+            
+            .ad-container, .ad-native-container {
+                margin-bottom: 25px;
+                margin-top: 15px;
+            }
+            
+            .video-player-container {
+                margin-bottom: 30px;
+            }
+            
+            .btn-container {
+                padding: 25px;
+            }
+            
+            .video-tab {
+                padding: 8px 12px;
+                min-width: 35px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-player-element {
+                height: 280px;
+            }
+            
+            body {
+                padding: 15px;
+            }
+            
+            .ad-container, .ad-native-container, .btn-container {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .video-player-container {
+                margin-bottom: 25px;
+            }
+            
+            .smartlink-btn {
+                padding: 16px 25px;
+                font-size: 1.2rem;
+                min-width: 100%;
+            }
+            
+            .video-tabs {
+                justify-content: flex-start;
+            }
+            
+            .video-tab {
+                padding: 6px 10px;
+                min-width: 30px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center;">
-        <img src="placeholder-image.jpg" alt="Loading Lure" style="max-width:100%; height:auto;">
-        <h3 style="color:#333;">Memuat Berita Eksklusif... (Mohon Tunggu Sebentar)</h3>
+    <!-- Header -->
+    <div class="header">
+        <h1>VIDEO STREAMING - 50 VIDEO</h1>
+        <p>Pilih video dari 1 hingga 50. Setiap video memiliki iklan unik.</p>
     </div>
+    
+    <!-- Tabs untuk navigasi video -->
+    <div class="video-tabs-container">
+        <div class="video-tabs" id="videoTabs">
+            <!-- Tabs akan di-generate oleh JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Info video saat ini -->
+    <div class="current-video-indicator" id="currentVideoInfo">
+        Sedang menampilkan: <strong>Video 1</strong>
+    </div>
+    
+    <!-- Tombol navigasi -->
+    <div class="navigation-buttons">
+        <button class="nav-btn" id="prevBtn" onclick="navigateVideo(-1)">← Video Sebelumnya</button>
+        <button class="nav-btn" id="nextBtn" onclick="navigateVideo(1)">Video Selanjutnya →</button>
+    </div>
+    
+    <!-- Iklan di atas video -->
+    <div class="ad-container">
+        <div id="adContent">
+            <!-- Iklan sosialbar -->
+            <script type='text/javascript' src='//pl28174448.effectivegatecpm.com/ae/86/03/ae8603e101b518f8dfaada7fd8ff1b30.js'></script>
+        </div>
+    </div>
+    
+    <!-- Video di tengah -->
+    <div class="video-player-container">
+        <div class="video-player-element" id="videoPlayer">
+            <!-- Video akan dimuat di sini berdasarkan parameter URL -->
+        </div>
+    </div>
+    
+    <!-- Iklan native banner di bawah video -->
+    <div class="ad-native-container">
+        <div id="nativeAdContent">
+            <!-- Iklan native banner -->
+            <script async="async" data-cfasync="false" src="//pl28146110.effectivegatecpm.com/e664c24eaf22da00b05b861c17fba2ec/invoke.js"></script>
+            <div id="container-e664c24eaf22da00b05b861c17fba2ec"></div>
+        </div>
+    </div>
+    
+    <!-- Tombol di bawah iklan native -->
+    <div class="btn-container">
+        <a href="https://www.effectivegatecpm.com/is7fm9bydu?key=921c5e2f3f1f66b17534e630cbde76d7" target="_blank" class="smartlink-btn">Click on long duration videos</a>
+    </div>
+
+    <script>
+        // Data untuk 50 video dengan iklan dan smartlink yang berbeda
+        const videoData = [];
+        
+        // Generate data untuk 50 video
+        for (let i = 1; i <= 50; i++) {
+            videoData.push({
+                id: i,
+                // Menggunakan sumber video dari arb-mar.github.io/Play/
+                videoUrl: `https://arb-mar.github.io/Play/video${i}.mp4`,
+                // Iklan sosialbar - bisa unik per video
+                adCode1: `<script type='text/javascript' src='//pl28174448.effectivegatecpm.com/ae/86/03/ae8603e101b518f8dfaada7fd8ff1b30.js'><\/script>`,
+                // Iklan native banner - bisa unik per video
+                adCode2: `<script async="async" data-cfasync="false" src="//pl28146110.effectivegatecpm.com/e664c24eaf22da00b05b861c17fba2ec/invoke.js"><\/script><div id="container-e664c24eaf22da00b05b861c17fba2ec"></div>`,
+                // Smartlink - bisa unik per video
+                smartlink: "https://www.effectivegatecpm.com/is7fm9bydu?key=921c5e2f3f1f66b17534e630cbde76d7",
+                // Judul video
+                title: `Video Streaming ${i}`,
+                // Deskripsi (opsional)
+                description: `Ini adalah video streaming ke-${i} dari 50 video yang tersedia.`
+            });
+        }
+        
+        // Variabel global untuk video saat ini
+        let currentVideoId = 1;
+        
+        // Fungsi untuk mendapatkan parameter video dari URL
+        function getVideoIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoParam = urlParams.get('video');
+            
+            // Validasi parameter
+            if (videoParam) {
+                const videoId = parseInt(videoParam);
+                if (videoId >= 1 && videoId <= 50) {
+                    return videoId;
+                }
+            }
+            
+            // Default ke video 1 jika tidak valid
+            return 1;
+        }
+        
+        // Fungsi untuk membuat tabs
+        function createVideoTabs() {
+            const tabsContainer = document.getElementById('videoTabs');
+            tabsContainer.innerHTML = '';
+            
+            for (let i = 1; i <= 50; i++) {
+                const tab = document.createElement('div');
+                tab.className = `video-tab ${i === currentVideoId ? 'active' : ''}`;
+                tab.textContent = i;
+                tab.dataset.videoId = i;
+                tab.onclick = () => switchVideo(i);
+                
+                tabsContainer.appendChild(tab);
+            }
+        }
+        
+        // Fungsi untuk beralih video
+        function switchVideo(videoId) {
+            if (videoId < 1 || videoId > 50) return;
+            
+            currentVideoId = videoId;
+            
+            // Update URL tanpa reload halaman
+            updateURL(videoId);
+            
+            // Update tabs
+            updateTabs();
+            
+            // Update video player
+            loadVideo(videoId);
+            
+            // Update info video
+            updateVideoInfo();
+            
+            // Update tombol navigasi
+            updateNavigationButtons();
+            
+            // Scroll ke atas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Fungsi untuk navigasi video (sebelumnya/selanjutnya)
+        function navigateVideo(direction) {
+            const newVideoId = currentVideoId + direction;
+            if (newVideoId >= 1 && newVideoId <= 50) {
+                switchVideo(newVideoId);
+            }
+        }
+        
+        // Fungsi untuk update tabs
+        function updateTabs() {
+            const tabs = document.querySelectorAll('.video-tab');
+            tabs.forEach(tab => {
+                const videoId = parseInt(tab.dataset.videoId);
+                if (videoId === currentVideoId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+        
+        // Fungsi untuk update info video
+        function updateVideoInfo() {
+            const infoElement = document.getElementById('currentVideoInfo');
+            infoElement.innerHTML = `Sedang menampilkan: <strong>Video ${currentVideoId}</strong>`;
+        }
+        
+        // Fungsi untuk update tombol navigasi
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentVideoId === 1;
+            nextBtn.disabled = currentVideoId === 50;
+        }
+        
+        // Fungsi untuk memuat video berdasarkan ID
+        function loadVideo(videoId) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoIndex = videoId - 1;
+            
+            // Tampilkan loading
+            videoPlayer.innerHTML = '<div class="video-loading">Memuat video...</div>';
+            
+            if (videoIndex >= 0 && videoIndex < videoData.length) {
+                const video = videoData[videoIndex];
+                
+                // Hapus video sebelumnya jika ada
+                const existingVideo = videoPlayer.querySelector('video');
+                if (existingVideo) {
+                    existingVideo.pause();
+                    videoPlayer.innerHTML = '';
+                }
+                
+                // Buat elemen video baru dengan autoplay
+                const videoElement = document.createElement('video');
+                videoElement.setAttribute('controls', '');
+                videoElement.setAttribute('autoplay', '');
+                videoElement.setAttribute('muted', ''); // Muted untuk memungkinkan autoplay
+                videoElement.setAttribute('playsinline', ''); // Untuk autoplay di iOS
+                videoElement.style.width = '100%';
+                videoElement.style.height = '100%';
+                videoElement.style.objectFit = 'cover';
+                
+                // Tambahkan event listener untuk autoplay
+                videoElement.addEventListener('loadeddata', function() {
+                    console.log(`Video ${videoId} dimuat, mencoba autoplay...`);
+                    
+                    // Coba play video
+                    const playPromise = videoElement.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            console.log(`Video ${videoId} berhasil di-autoplay`);
+                        }).catch(error => {
+                            console.log(`Autoplay gagal untuk video ${videoId}:`, error);
+                            
+                            // Coba unmute dan play lagi (butuh interaksi user)
+                            videoElement.muted = true;
+                            videoElement.play().catch(e => {
+                                console.log('Masih gagal autoplay:', e);
+                            });
+                        });
+                    }
+                });
+                
+                // Tambahkan source
+                const sourceElement = document.createElement('source');
+                sourceElement.src = video.videoUrl;
+                sourceElement.type = 'video/mp4';
+                
+                videoElement.appendChild(sourceElement);
+                videoElement.innerHTML += 'Browser Anda tidak mendukung tag video.';
+                
+                // Tambahkan video ke player
+                videoPlayer.appendChild(videoElement);
+                
+                // Update judul halaman
+                document.title = `Video ${videoId} - Streaming Platform`;
+                
+                console.log(`Video ${videoId} dimuat: ${video.videoUrl}`);
+                
+                // Update iklan dan tombol
+                updateAds(video);
+                
+            } else {
+                // Jika video tidak ditemukan, tampilkan placeholder
+                videoPlayer.innerHTML = `<div class="video-placeholder">VIDEO ${videoId}</div>`;
+            }
+        }
+        
+        // Fungsi untuk update iklan
+        function updateAds(video) {
+            // Update konten iklan
+            document.getElementById('adContent').innerHTML = video.adCode1;
+            document.getElementById('nativeAdContent').innerHTML = video.adCode2;
+            document.querySelector('.smartlink-btn').href = video.smartlink;
+            
+            // Muat ulang skrip iklan
+            reloadAdScripts();
+        }
+        
+        // Fungsi untuk memuat ulang skrip iklan
+        function reloadAdScripts() {
+            // Hapus skrip iklan lama yang spesifik
+            const oldScripts = document.querySelectorAll('script[src*="effectivegatecpm.com"]');
+            oldScripts.forEach(script => {
+                if (script.parentNode && !script.hasAttribute('data-keep')) {
+                    script.parentNode.removeChild(script);
+                }
+            });
+            
+            // Hapus container iklan native lama jika ada
+            const oldNativeContainer = document.getElementById('container-e664c24eaf22da00b05b861c17fba2ec');
+            if (oldNativeContainer) {
+                oldNativeContainer.innerHTML = '';
+            }
+            
+            // Muat ulang skrip iklan setelah jeda singkat
+            setTimeout(() => {
+                // Muat iklan sosialbar
+                const script1 = document.createElement('script');
+                script1.src = '//pl28174448.effectivegatecpm.com/ae/86/03/ae8603e101b518f8dfaada7fd8ff1b30.js';
+                script1.type = 'text/javascript';
+                document.body.appendChild(script1);
+                
+                // Muat iklan native banner
+                const script2 = document.createElement('script');
+                script2.src = '//pl28146110.effectivegatecpm.com/e664c24eaf22da00b05b861c17fba2ec/invoke.js';
+                script2.async = true;
+                script2.setAttribute('data-cfasync', 'false');
+                document.body.appendChild(script2);
+                
+                console.log('Iklan dimuat ulang untuk video', currentVideoId);
+            }, 500);
+        }
+        
+        // Fungsi untuk update URL tanpa reload halaman
+        function updateURL(videoId) {
+            const newURL = `${window.location.pathname}?video=${videoId}`;
+            window.history.pushState({ videoId }, `Video ${videoId}`, newURL);
+        }
+        
+        // Inisialisasi halaman
+        function initPage() {
+            // Dapatkan video ID dari URL
+            currentVideoId = getVideoIdFromURL();
+            
+            // Buat tabs
+            createVideoTabs();
+            
+            // Muat video pertama dengan autoplay
+            loadVideo(currentVideoId);
+            
+            // Update info video
+            updateVideoInfo();
+            
+            // Update tombol navigasi
+            updateNavigationButtons();
+            
+            // Tambahkan event listener untuk perubahan URL (tombol back/forward)
+            window.addEventListener('popstate', function(event) {
+                if (event.state && event.state.videoId) {
+                    switchVideo(event.state.videoId);
+                } else {
+                    switchVideo(getVideoIdFromURL());
+                }
+            });
+            
+            // Tambahkan event listener untuk keyboard
+            document.addEventListener('keydown', (e) => {
+                // Panah kiri untuk video sebelumnya
+                if (e.key === 'ArrowLeft' && currentVideoId > 1) {
+                    navigateVideo(-1);
+                }
+                
+                // Panah kanan untuk video selanjutnya
+                else if (e.key === 'ArrowRight' && currentVideoId < 50) {
+                    navigateVideo(1);
+                }
+                
+                // Angka 1-5 untuk melompat ke video tertentu
+                else if (e.key >= '1' && e.key <= '5') {
+                    const num = parseInt(e.key);
+                    switchVideo(num);
+                }
+                
+                // Angka 0 untuk video 10, 20, 30, 40, 50
+                else if (e.key === '0') {
+                    let newVideoId;
+                    if (currentVideoId <= 10) newVideoId = 10;
+                    else if (currentVideoId <= 20) newVideoId = 20;
+                    else if (currentVideoId <= 30) newVideoId = 30;
+                    else if (currentVideoId <= 40) newVideoId = 40;
+                    else newVideoId = 50;
+                    
+                    switchVideo(newVideoId);
+                }
+                
+                // Space untuk pause/play
+                else if (e.key === ' ' || e.key === 'Spacebar') {
+                    e.preventDefault();
+                    const videoElement = document.querySelector('#videoPlayer video');
+                    if (videoElement) {
+                        if (videoElement.paused) {
+                            videoElement.play();
+                        } else {
+                            videoElement.pause();
+                        }
+                    }
+                }
+            });
+            
+            // Log informasi
+            console.log(`=== VIDEO STREAMING - 50 DALAM 1 ===`);
+            console.log(`Video aktif: ${currentVideoId}`);
+            console.log(`Fitur: 50 video dalam 1 halaman`);
+            console.log(`Navigasi: Tabs untuk semua video`);
+            console.log(`Iklan: Diperbarui setiap ganti video`);
+            console.log(`Smartlink: Tombol dengan link tujuan`);
+            console.log(`===============================`);
+        }
+        
+        // Jalankan inisialisasi ketika halaman dimuat
+        document.addEventListener('DOMContentLoaded', initPage);
+        
+        // Fungsi untuk melihat daftar URL video
+        function showVideoURLs() {
+            console.log('=== DAFTAR URL VIDEO (1-50) ===');
+            for (let i = 1; i <= 50; i++) {
+                console.log(`Video ${i}: ${window.location.origin}${window.location.pathname}?video=${i}`);
+            }
+            console.log('===============================');
+        }
+        
+        // Panggil fungsi ini di console untuk melihat daftar URL
+        window.showVideoURLs = showVideoURLs;
+        
+        // Fungsi untuk share URL video saat ini
+        window.shareCurrentVideo = function() {
+            const url = `${window.location.origin}${window.location.pathname}?video=${currentVideoId}`;
+            if (navigator.share) {
+                navigator.share({
+                    title: `Video ${currentVideoId}`,
+                    text: 'Tonton video ini di platform streaming kami!',
+                    url: url
+                });
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert(`Link Video ${currentVideoId} disalin: ${url}`);
+                });
+            }
+        };
+    </script>
 </body>
 </html>
